@@ -1,0 +1,11 @@
+{% macro displaySources(source_list) %}
+
+{% for source in source_list %}
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 source-card">
+  <a href="/article/{{source.id}}">
+    <p class="text-capitalize text-muted">{{source.id}}</p>
+  </a>
+</div>
+
+{% endfor %} 
+{% endmacro %} 
