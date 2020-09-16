@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import Article, Category, Source , Headlines
+from .models import Article, Category, Source 
 
 # Getting api key
 api_key = None
@@ -37,7 +37,7 @@ def process_results(source_list):
     '''
     function to process results and transform them to a list of objects
     Args:
-        source_list:dictionary cotaining source details
+        source_list:dictionary containing source details
     Returns:
         source_results: A list of source objects
     '''
@@ -54,7 +54,7 @@ def process_results(source_list):
     return source_results
 
 def article_source(id):
-    article_source_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
+    article_source_url = 'https://newsapi.org/v2/everything?sources={}&apiKey={}'.format(id,api_key)
     print(article_source_url)
     with urllib.request.urlopen(article_source_url) as url:
         article_source_data = url.read()
@@ -106,20 +106,17 @@ def get_category(cat_name):
 
     return get_cartegory_results
 
-def get_headlines():
-    '''
-    function that gets the response to the category json
-    '''
-    get_headlines_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'.format(api_key)
-    print(get_headlines_url)
-    with urllib.request.urlopen(get_headlines_url) as url:
-        get_headlines_data = url.read()
-        get_headlines_response = json.loads(get_headlines_data)
+def search_source(source_name):
+    search_source_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=d7666da4dfce4b05ad0981af2acafb02'.format(source_name)
+    with urllib.request.urlopen(search_source_url) as url:
+        search_source_data = url.read()
+        search_source_response = json.loads(search_source_data)
 
-        get_headlines_results = None
+        search_source_list = None
 
-        if get_headlines_response['articles']:
-            get_headlines_list = get_headlines_response['articles']
-            get_headlines_results = process_articles_results(get_headlines_list)
+        if search_source_response['totalResults']:
+            search_source_list = search_source_response['totalResults']
+            search_source_results = process_results(search_source_list)
 
-    return get_headlines_results
+
+    return search_source_results
