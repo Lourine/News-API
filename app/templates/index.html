@@ -8,8 +8,24 @@
 {% endblock %}
 <!--Content Block-->
 {% block content %} 
-<h1 class="text-center">Browse News Sources</h1>
-<ul>
-  {{ macro.displaySources(sources)}}
-</ul>
+<div class="container">
+  <form>
+      <input type="text" name="source_query" placeholder="Search for a Source" class="form-control">
+      <input type="submit"  value="Submit" class="btn btn-default">
+  </form>
+
+</div>
+<div class ="container-fluid mt-2 " id ="allsources">
+  <div class = "overlay">
+    <div class="container">
+      <form>
+          <input type="text" name="source_query" placeholder="Search for a Source" class="form-control">
+          <input type="submit"  value="Submit" class="btn btn-default">
+      </form>
+    
+    </div>
+    <h2 class="text-center font-weight-bold headers" >Browse News Sources</h2>
+      {{ macro.displaySources(sources)}}
+  </div>
+</div>
 {% endblock %}

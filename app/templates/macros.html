@@ -1,11 +1,75 @@
 {% macro displaySources(source_list) %}
-
-{% for source in source_list %}
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 source-card">
-  <a href="/article/{{source.id}}">
-    <p class="text-capitalize text-muted">{{source.id}}</p>
-  </a>
+<div class="container-fluid" id ="articles">
+    <div class="row" >
+  <div class="card-columns">
+    {% for source in source_list %}
+    <div class="card sourcecard">
+      <div class="card-header" id="sourcename" >
+        <h4 class="text-capitalize text-muted">{{source.id}}</h4>
+      </div>
+      <div class="card body">
+        <p class="Description">{{source.description}}</p>
+        <a href="/article/{{source.id}}"><button class="btn btn-sm btn-outline-success">View Articles in {{source.name}}</button> </a>
+        <a href="{{source.url}}"><button class="btn btn-sm btn-outline-info" id="visit">Visit {{source.name}}</button></a>
 </div>
-
+</div>
 {% endfor %} 
+  </div>
+</div>
 {% endmacro %} 
+{% macro displaySourceList(source_list) %}
+
+    {% for source in source_list %}
+        
+            <li class="text-center">
+                <a href="/source/{{source.id}}">
+                    {{ source.title|truncate(10)}}</a>
+            </li>
+        </div>
+
+    {% endfor %}
+    {%endmacro %}
+
+{% macro displayArticles(news) %}
+<div class="container-fluid">
+<div class="card-columns">
+  {% for article in news %}
+  <div class="card">
+    <div class="card-header art">
+      <h4>{{article.title}}</h4>
+    </div>
+    <div class="card-body">
+    <img class="card" src="{{article.image}}"alt="{{article.title }}" class="card-img" sizes="50px*70px">
+    <p class="desc">{{article.description}}</p>
+    <p disabled>Posted: {{article.time}} <br> By: {{article.author }} </p>
+  </div>
+  <div class="card-footer">
+    <a href="{{article.url}}"><button class="btn btn-sm btn-outline-success">Read More</button></a> 
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endmacro %}
+
+{% macro displayCategories(category) %}
+<div class="container-fluid">
+<div class="card-columns">
+{% for category in category %}
+<div class="card">
+  <div class ="card-header">
+  <h4>{{category.title}}</h4>
+  </div>
+  <img class="card" src="{{category.image}}" alt ="{{category.title }}" class="card-img" sizes="50px*100px">
+  <div class="card-body">
+    <p class="desc">{{category.description}}</p>
+    <p disabled>Posted: {{category.time}} <br> By: {{category.author }} </p>
+  </div>
+   <div class = "card-footer">
+     <a href="{{category.url}}"><button class="btn btn-sm btn-outline-success">Read More</button></a> 
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+  </div>
+  {%endmacro %}
