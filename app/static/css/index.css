@@ -1,0 +1,58 @@
+h2{
+    margin-top:50px;
+}
+.title{
+    font-family: 'Livvic', sans-serif;
+    color: blue;
+    background-color: #6bc5d2;
+}
+.sourcecard{
+    background-color: rgba(248, 248, 248, 0.89);
+}
+#sourcename{
+    font-family: 'Livvic', sans-serif;
+    background-color: plum;
+    color: blue;
+    font-weight: bold;
+}
+#sourcename a:hover{
+    text-decoration: none;
+    font-weight: bolder;
+}
+.desc{
+    font-family: 'Handlee', cursive;
+    font-size:18px;
+}
+#visit{
+    margin-left: 10%; 
+}
+.art{
+    font-family: 'Chilanka', cursive;
+}
+#articles{
+    margin-top: 6%;
+}
+.info{
+    margin-bottom: 2%;
+}
+#allsources{
+    background-image:url('https://images.pexels.com/photos/4004374/pexels-photo-4004374.jpeg?cs=srgb&dl=pexels-evie-shaffer-4004374.jpg&fm=jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.overlay{
+    background-color: rgba(39, 42, 42, 0.884);
+    width: 100%;
+    padding-top: 1%
+}
+.headers{
+    margin-top:5%;
+    margin-bottom:16px; 
+    color: white;
+    font-family: 'ABeeZee', sans-serif;
+}
+.nav-link,.navbar-brand{
+    font-family: 'ABeeZee', sans-serif;
+}
